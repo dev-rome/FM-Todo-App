@@ -2,6 +2,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import type { TodoItems } from "./types";
 import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [todos, setTodos] = useState<TodoItems[]>([]);
@@ -16,22 +17,27 @@ function App() {
   };
 
   const toggleTodoCompletion = (id: string) => {
-    setTodos(prevTodos =>
-      prevTodos.map(todo =>
-        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
-      )
-    )
-  }
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo,
+      ),
+    );
+  };
 
   const removeTodo = (id: string) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-  }
+  };
 
   return (
     <>
       <main>
         <div>
-          <TodoForm />
+          <TodoForm addTodos={addTodo} />
+          <TodoList
+            todos={todos}
+            toggleTodos={toggleTodoCompletion}
+            removeTodos={removeTodo}
+          />
         </div>
       </main>
     </>
