@@ -2,6 +2,13 @@ export interface ThemeContextType {
   theme: "light" | "dark";
   toggleTheme: () => void;
 }
+export interface BackgroundImageProps {
+  mobileLight: string;
+  desktopLight: string;
+  mobileDark: string;
+  desktopDark: string;
+  className?: string;
+}
 export interface TodoItems {
   id: string;
   task: string;
