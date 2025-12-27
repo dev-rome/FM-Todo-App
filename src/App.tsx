@@ -33,14 +33,15 @@ function App() {
     <main>
       <div className="bg-hero absolute -z-10 h-[200px] w-full bg-cover bg-no-repeat md:h-[300px]"></div>
       <Header />
-      <section className="mx-auto max-w-[540px] px-6">
+      <div className="mx-auto max-w-[540px] px-6">
         <TodoForm addTodos={addTodo} />
         <TodoList
           todos={todos}
+          setTodos={setTodos}
           toggleTodos={toggleTodoCompletion}
           removeTodos={removeTodo}
         />
-      </section>
+      </div>
       {todos.length > 0 && (
         <p className="mt-10 text-center text-sm text-(--footer-text) md:mt-6">
           Drag and drop to reorder list

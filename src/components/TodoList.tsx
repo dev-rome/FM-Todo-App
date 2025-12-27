@@ -1,10 +1,18 @@
 import { useState } from "react";
+import { DndContext, closestCenter } from "@dnd-kit/core";
+import type { DragEndEvent } from "@dnd-kit/core";
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  arrayMove,
+} from "@dnd-kit/sortable";
 import type { TodoListProps } from "../types";
 import TodoItem from "./TodoItem";
 import FilterButtons from "./FilterButtons";
 
 export default function TodoList({
   todos,
+  setTodos,
   removeTodos,
   toggleTodos,
 }: TodoListProps) {
@@ -19,26 +27,50 @@ export default function TodoList({
   const activeTodosCount = todos.filter((todo) => !todo.isCompleted).length;
 
   const handleClearCompleted = () => {
-    const completedIds = todos
-      .filter((todo) => todo.isCompleted)
-      .map((todo) => todo.id);
-    completedIds.forEach((id) => removeTodos(id));
+    todos.forEach((todo) => {
+      if (todo.isCompleted) {
+        removeTodos(todo.id);
+      }
+    });
+  };
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (over && active.id !== over.id) {
+      setTodos((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
+        return arrayMove(items, oldIndex, newIndex);
+      });
+    }
   };
 
   return (
     <>
       <article className="mt-4 rounded-[5px] bg-(--list-background) shadow-(--list-box-shadow) md:mt-6">
-        <ul>
-          {filteredTodos.map(({ id, task, isCompleted }) => (
-            <TodoItem
-              key={id}
-              title={task}
-              checked={isCompleted}
-              onDelete={() => removeTodos(id)}
-              onToggleChange={() => toggleTodos(id)}
-            />
-          ))}
-        </ul>
+        <DndContext
+          collisionDetection={closestCenter}
+          onDragEnd={handleDragEnd}
+        >
+          <SortableContext
+            items={todos.map((todo) => todo.id)}
+            strategy={verticalListSortingStrategy}
+          >
+            <ul>
+              {filteredTodos.map(({ id, task, isCompleted }) => (
+                <TodoItem
+                  key={id}
+                  id={id}
+                  title={task}
+                  checked={isCompleted}
+                  onDelete={() => removeTodos(id)}
+                  onToggleChange={() => toggleTodos(id)}
+                />
+              ))}
+            </ul>
+          </SortableContext>
+        </DndContext>
         {todos.length > 0 && (
           <div className="flex justify-between p-6">
             <p className="text-xs text-(--footer-text) md:text-sm">

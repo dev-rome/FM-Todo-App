@@ -12,14 +12,17 @@ export interface TodoFormProps {
 }
 export interface TodoListProps {
   todos: TodoItems[];
+  setTodos: React.Dispatch<React.SetStateAction<TodoItems[]>>;
   toggleTodos: (id: string) => void;
   removeTodos: (id: string) => void;
 }
+
 export interface TodoItemProps {
+  id: string;
   title: string;
   checked: boolean;
-  onToggleChange: () => void;
   onDelete: () => void;
+  onToggleChange: () => void;
 }
 
 export interface FilterButtonsProps {
