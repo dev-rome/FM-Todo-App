@@ -21,3 +21,8 @@ export interface TodoItemProps {
   onToggleChange: () => void;
   onDelete: () => void;
 }
+
+export interface FilterButtonsProps {
+  filter: "all" | "active" | "completed";
+  onFilterChange: (filter: "all" | "active" | "completed") => void;
+}
