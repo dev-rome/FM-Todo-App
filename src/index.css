@@ -44,24 +44,16 @@
 
   /* Typography */
   --font-family: "Josefin Sans", sans-serif;
-
-  --font-size-18: 1.125rem;
-  --font-size-14: 0.875rem;
-  --font-size-12: 0.75rem;
-
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
-
-  --line-height-base: 100%;
-  --letter-spacing-base: -0.015625rem;
 }
 
 :root {
   --color-background: hsl(0, 0%, 98%);
+  --color-form-background: var(--color-white);
 }
 
 .dark {
   --color-background: hsl(235, 21%, 11%);
+  --color-form-background: var(--color-navy-900);
 }
 
 .bg-hero {
