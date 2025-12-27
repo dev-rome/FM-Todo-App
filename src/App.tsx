@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import type { TodoItems } from "./types";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import Header from "./components/Header";
 
 function App() {
   const [todos, setTodos] = useState<TodoItems[]>([]);
@@ -29,18 +30,18 @@ function App() {
   };
 
   return (
-    <>
-      <main>
-        <div>
-          <TodoForm addTodos={addTodo} />
-          <TodoList
-            todos={todos}
-            toggleTodos={toggleTodoCompletion}
-            removeTodos={removeTodo}
-          />
-        </div>
-      </main>
-    </>
+    <main>
+      <div className="bg-hero absolute -z-10 h-[200px] w-full bg-cover bg-no-repeat md:h-[300px]"></div>
+      <Header />
+      <div className="mx-auto max-w-[540px] px-6">
+        <TodoForm addTodos={addTodo} />
+        <TodoList
+          todos={todos}
+          toggleTodos={toggleTodoCompletion}
+          removeTodos={removeTodo}
+        />
+      </div>
+    </main>
   );
 }
 
