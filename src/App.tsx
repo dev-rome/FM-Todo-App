@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import type { TodoItems } from "./types";
+import DesktopDarkImage from "./assets/images/bg-desktop-dark.jpg";
+import DesktopLightImage from "./assets/images/bg-desktop-light.jpg";
+import MobileDarkImage from "./assets/images/bg-mobile-dark.jpg";
+import MobileLightImage from "./assets/images/bg-mobile-light.jpg";
+import BackgroundImage from "./components/BackgroundImage";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import Header from "./components/Header";
@@ -38,7 +43,13 @@ function App() {
 
   return (
     <main>
-      <div className="bg-hero absolute -z-10 h-[200px] w-full bg-cover bg-no-repeat md:h-[300px]"></div>
+      <BackgroundImage
+        mobileLight={MobileLightImage}
+        desktopLight={DesktopLightImage}
+        mobileDark={MobileDarkImage}
+        desktopDark={DesktopDarkImage}
+        className="h-[200px] md:h-[300px]"
+      />
       <Header />
       <div className="mx-auto max-w-[540px] px-6">
         <TodoForm addTodos={addTodo} />
