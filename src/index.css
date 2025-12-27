@@ -47,13 +47,25 @@
 }
 
 :root {
-  --color-background: hsl(0, 0%, 98%);
-  --color-form-background: var(--color-white);
+  --color-background: var(--color-gray-50);
+  --form-background: var(--color-white);
+  --input-text-color: var(--color-purple-800);
+  --list-background: var(--color-white);
+  --list-box-shadow: 0 35px 50px -15px rgba(194, 195, 214, 0.5);
+  --list-item: var(--color-navy-850);
+  --color-border: var(--color-purple-400);
+  --line: var(--color-gray-600);
 }
 
 .dark {
-  --color-background: hsl(235, 21%, 11%);
-  --color-form-background: var(--color-navy-900);
+  --color-background: var(--color-navy-950);
+  --form-background: var(--color-navy-900);
+  --input-text-color: var(--color-gray-600);
+  --list-background: var(--color-navy-900);
+  --list-box-shadow: 0 35px 50px -15px rgba(0, 0, 0, 0.5);
+  --list-item: var(--color-purple-100);
+  --color-border: var(--color-purple-800);
+  --line: var(--color-purple-700);
 }
 
 .bg-hero {
@@ -78,4 +90,59 @@ body {
   background-color: var(--color-background);
   font-family: var(--font-family);
   font-size: var(--font-size-18);
+}
+
+.gradient-circle {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--list-background);
+  position: relative;
+  cursor: pointer;
+}
+
+.gradient-circle:hover {
+  background:
+    linear-gradient(var(--list-background), var(--list-background)) padding-box,
+    var(--color-gradient-1) border-box;
+  border: 1px solid transparent;
+}
+
+.gradient-circle:checked {
+  background: var(--color-gradient-1);
+  border: none;
+}
+
+.gradient-circle:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 8px;
+  background-image: url("./assets/images/icon-check.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.gradient-circle:checked + span {
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: var(--line);
+}
+
+@media (min-width: 768px) {
+  .gradient-circle {
+    width: 24px;
+    height: 24px;
+  }
+
+  .gradient-circle:checked::after {
+    width: 12px;
+    height: 10px;
+  }
 }
