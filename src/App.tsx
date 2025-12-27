@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import type { TodoItems } from "./types";
 import TodoForm from "./components/TodoForm";
@@ -6,7 +6,14 @@ import TodoList from "./components/TodoList";
 import Header from "./components/Header";
 
 function App() {
-  const [todos, setTodos] = useState<TodoItems[]>([]);
+  const [todos, setTodos] = useState<TodoItems[]>(() => {
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (task: string) => {
     const newTodo: TodoItems = {
