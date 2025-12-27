@@ -72,24 +72,6 @@
   --footer-text-hover: var(--color-purple-400);
 }
 
-.bg-hero {
-  background-image: url("./assets/images/bg-mobile-light.jpg");
-}
-
-.dark .bg-hero {
-  background-image: url("./assets/images/bg-mobile-dark.jpg");
-}
-
-@media (min-width: 768px) {
-  .bg-hero {
-    background-image: url("./assets/images/bg-desktop-light.jpg");
-  }
-
-  .dark .bg-hero {
-    background-image: url("./assets/images/bg-desktop-dark.jpg");
-  }
-}
-
 body {
   background-color: var(--color-background);
   font-family: var(--font-family);
