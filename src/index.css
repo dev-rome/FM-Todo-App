@@ -1,1 +1,89 @@
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Colors */
+  --color-white: hsl(0, 100%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+
+  --color-purple-800: hsl(237, 14%, 26%);
+  --color-purple-700: hsl(233, 14%, 35%);
+  --color-purple-600: hsl(235, 16%, 43%);
+  --color-purple-400: hsl(234, 39%, 85%);
+  --color-purple-100: hsl(236, 33%, 92%);
+
+  --color-gray-600: hsl(236, 9%, 61%);
+  --color-gray-300: hsl(233, 11%, 84%);
+  --color-gray-50: hsl(0, 0%, 98%);
+
+  --color-navy-950: hsl(235, 21%, 11%);
+  --color-navy-900: hsl(235, 24%, 19%);
+  --color-navy-850: hsl(235, 19%, 35%);
+
+  --color-blue-500: hsl(220, 98%, 61%);
+
+  --color-gradient-1: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  --color-gradient-2: linear-gradient(
+    to right,
+    hsl(254, 85%, 40%),
+    hsl(307, 64%, 39%)
+  );
+
+  /* Spacing */
+  --spacing-0: 0rem;
+  --spacing-100: 0.5rem;
+  --spacing-200: 1rem;
+  --spacing-300: 1.5rem;
+  --spacing-500: 2.5rem;
+  --spacing-600: 3rem;
+
+  /* Typography */
+  --font-family: "Josefin Sans", sans-serif;
+
+  --font-size-18: 1.125rem;
+  --font-size-14: 0.875rem;
+  --font-size-12: 0.75rem;
+
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --line-height-base: 100%;
+  --letter-spacing-base: -0.015625rem;
+}
+
+:root {
+  --color-background: hsl(0, 0%, 98%);
+}
+
+.dark {
+  --color-background: hsl(235, 21%, 11%);
+}
+
+.bg-hero {
+  background-image: url("./assets/images/bg-mobile-light.jpg");
+}
+
+.dark .bg-hero {
+  background-image: url("./assets/images/bg-mobile-dark.jpg");
+}
+
+@media (min-width: 768px) {
+  .bg-hero {
+    background-image: url("./assets/images/bg-desktop-light.jpg");
+  }
+
+  .dark .bg-hero {
+    background-image: url("./assets/images/bg-desktop-dark.jpg");
+  }
+}
+
+body {
+  background-color: var(--color-background);
+  font-family: var(--font-family);
+  font-size: var(--font-size-18);
+}
