@@ -55,6 +55,8 @@
   --list-item: var(--color-navy-850);
   --color-border: var(--color-purple-400);
   --line: var(--color-gray-600);
+  --footer-text: var(--color-gray-600);
+  --footer-text-hover: var(--color-navy-850);
 }
 
 .dark {
@@ -66,6 +68,8 @@
   --list-item: var(--color-purple-100);
   --color-border: var(--color-purple-800);
   --line: var(--color-purple-700);
+  --footer-text: var(--color-purple-600);
+  --footer-text-hover: var(--color-purple-400);
 }
 
 .bg-hero {
@@ -145,4 +149,30 @@ body {
     width: 12px;
     height: 10px;
   }
+}
+
+.footer-button {
+  font-size: 0.75rem;
+  color: var(--footer-text);
+  font-weight: 700;
+}
+
+.footer-button:hover {
+  color: var(--footer-text-hover);
+}
+
+@media (min-width: 768px) {
+  .footer-button {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-button:hover {
+    cursor: pointer;
+  }
+}
+
+.active {
+  color: var(--color-blue-500);
 }
