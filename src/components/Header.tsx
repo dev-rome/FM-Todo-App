@@ -10,9 +10,9 @@ export default function Header() {
       <p className="text-2xl font-bold tracking-[0.3em] text-white">TODO</p>
       <button className="lg:cursor-pointer" onClick={toggleTheme}>
         <img
+          className="w-[19px] md:w-[26px]"
           src={theme === "dark" ? Sun : Moon}
           alt={theme === "dark" ? "sun icon" : "moon icon"}
-          className="w-[19px] md:w-[26px]"
         />
       </button>
     </header>
