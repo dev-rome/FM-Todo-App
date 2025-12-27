@@ -13,6 +13,7 @@ export default function Header() {
           className="w-[19px] md:w-[26px]"
           src={theme === "dark" ? Sun : Moon}
           alt={theme === "dark" ? "sun icon" : "moon icon"}
+          fetchPriority="high"
         />
       </button>
     </header>
