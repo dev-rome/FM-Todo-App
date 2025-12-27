@@ -8,7 +8,7 @@ export default function TodoItem({
   onToggleChange,
 }: TodoItemProps) {
   return (
-    <li className="group flex items-center justify-between border-t border-(--color-border) p-6 first:border-0">
+    <li className="group flex items-center justify-between border-t border-(--color-border) p-6 first:border-0 last:border-b">
       <label className="flex items-center gap-4 md:gap-6">
         <input
           className="gradient-circle"
