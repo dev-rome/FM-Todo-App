@@ -19,11 +19,10 @@ export default function TodoList({
   const activeTodosCount = todos.filter((todo) => !todo.isCompleted).length;
 
   const handleClearCompleted = () => {
-    todos.forEach((todo) => {
-      if (todo.isCompleted) {
-        removeTodos(todo.id);
-      }
-    });
+    const completedIds = todos
+      .filter((todo) => todo.isCompleted)
+      .map((todo) => todo.id);
+    completedIds.forEach((id) => removeTodos(id));
   };
 
   return (
@@ -54,9 +53,11 @@ export default function TodoList({
           </div>
         )}
       </article>
-      <div className="mt-4 flex justify-center gap-4 bg-(--list-background) py-5 shadow-(--list-box-shadow) md:hidden">
-        <FilterButtons filter={filter} onFilterChange={setFilter} />
-      </div>
+      {todos.length > 0 && (
+        <div className="mt-4 flex justify-center gap-4 rounded-[5px] bg-(--list-background) py-5 shadow-(--list-box-shadow) md:hidden">
+          <FilterButtons filter={filter} onFilterChange={setFilter} />
+        </div>
+      )}
     </>
   );
 }
