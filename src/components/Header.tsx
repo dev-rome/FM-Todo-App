@@ -7,7 +7,7 @@ export default function Header() {
 
   return (
     <header className="flex items-center justify-between px-6 pt-12 md:mx-auto md:max-w-[540px]">
-      <p className="text-2xl font-bold tracking-[0.3em] text-white">TODO</p>
+      <h1 className="text-2xl font-bold tracking-[0.3em] text-white">TODO</h1>
       <button className="lg:cursor-pointer" onClick={toggleTheme}>
         <img
           className="w-[19px] md:w-[26px]"
