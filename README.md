@@ -1,6 +1,6 @@
 # Frontend Mentor - Todo app solution
 
-This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: Coming soon.
-- Live Site URL: Coming soon.
+- Solution URL: [TODO Solution](https://www.frontendmentor.io/solutions/todo-app-using-react-typescript-tailwind-css-local-storage--0LnBjIrc8)
+- Live Site URL: [TODO APP](https://benevolent-truffle-ae5f5b.netlify.app/)
 
 ## My process
 
@@ -46,8 +46,13 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
+- Tailwind CSS
+- React
+- React Context API
+- Custom React Hook
+- Typescript
+- Local Storage
 
 ## Author
 
